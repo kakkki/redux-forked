@@ -1,9 +1,16 @@
 import { connect } from 'react-redux'
-import { toggleTodo } from '../actions'
-import TodoList from "../components/TodoList";
+import { toggleTodoDummy } from '../actions'
+import TodoListDummy from "../components/TodoListDummy";
 import { VisibilityFilters } from "../actions";
 
+const filterDummyTodoList = (todoList) => {
+    return todoList.filter(item => {
+      return ('dummyTodoId' in item ? true : false)
+    })
+  }
+
 const getVisibleTodosDummy = (todos, filter) => {
+    todos = filterDummyTodoList(todos)
     switch (filter) {
         case VisibilityFilters.SHOW_ALL:
             return todos
@@ -20,11 +27,11 @@ const mapStateToProps = state => ({
     todos: getVisibleTodosDummy(state.todos, state.visibilityFilter)
 })
 
-const mapDispatchToProops = dispatch => ({
-    toggleTodo: id => dispatch(toggleTodo(id))
+const mapDispatchToProps = dispatch => ({
+    toggleTodoDummy: id => dispatch(toggleTodoDummy(id))
 })
 
 export default connect(
     mapStateToProps,
-    mapDispatchToProops
-)(TodoList)
+    mapDispatchToProps
+)(TodoListDummy)

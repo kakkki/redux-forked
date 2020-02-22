@@ -13,7 +13,7 @@ const todos = (state = [], action) => {
       return [
         ...state,
         {
-          id: action.id,
+          dummyTodoId: action.dummyTodoId,
           text: action.text + ' : dummy',
           completed: false
         }
@@ -24,7 +24,13 @@ const todos = (state = [], action) => {
           ? {...todo, completed: !todo.completed}
           : todo
       )
-    default:
+    case 'TOGGLE_TODO_DUMMY':
+      return state.map(todo =>
+        (todo.id === action.id)
+          ? {...todo, completed: !todo.completed}
+          : todo
+      )
+      default:
       return state
   }
 }

@@ -3,7 +3,16 @@ import { toggleTodo } from '../actions'
 import TodoList from '../components/TodoList'
 import { VisibilityFilters } from '../actions'
 
+const filterNotDummyTodoList = (todoList) => {
+  return todoList.filter(item => {
+    return ('id' in item ? true : false)
+  })
+}
+
 const getVisibleTodos = (todos, filter) => {
+
+  todos = filterNotDummyTodoList(todos)
+
   switch (filter) {
     case VisibilityFilters.SHOW_ALL:
       return todos
