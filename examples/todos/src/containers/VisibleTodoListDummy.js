@@ -10,6 +10,14 @@ const filterDummyTodoList = (todoList) => {
   }
 
 const getVisibleTodosDummy = (todos, filter) => {
+    const square = x => x * x
+    console.log(square(3))
+    const add = x => y => y + x;
+    const simpleAdd = (y, x) => y + x;
+    console.log(add(3))
+    console.log(add(3)(2))
+    console.log(simpleAdd(10, 20))
+
     todos = filterDummyTodoList(todos)
     switch (filter) {
         case VisibilityFilters.SHOW_ALL:
