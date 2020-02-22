@@ -8,7 +8,7 @@ const TodoListDummy = ({ todos, toggleTodoDummy}) => (
             <Todo
                 key={todo.id}
                 {...todo}
-                onClick={() => toggleTodoDummy(todo.id)}
+                onClick={() => toggleTodoDummy(todo.dummyTodoId)}
             />
         )}
     </ul>

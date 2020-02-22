@@ -21,9 +21,9 @@ export const toggleTodo = id => ({
   id
 })
 
-export const toggleTodoDummy = id => ({
+export const toggleTodoDummy = dummyTodoId => ({
   type: 'TOGGLE_TODO_DUMMY',
-  id
+  dummyTodoId
 })
 
 export const VisibilityFilters = {
